@@ -16,6 +16,11 @@ export const handler: Handler = async (event) => {
   const record = event.Records[0].Sns;
   const bid: Bid = JSON.parse(record.Message);
 
+  if (!bid.bidId){
+    console.log("invalid bid")
+    return;
+  }
+
   const dBBid : DBBid = {
     ...bid,
     timeStamp: new Date().toString(),

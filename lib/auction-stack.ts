@@ -93,9 +93,16 @@ export class AuctionStack extends cdk.Stack {
     topic.addSubscription(
       new subs.SqsSubscription(queue, {
         rawMessageDelivery: true,
+        filterPolicy: {
+          auction_type: sns.SubscriptionFilter.stringFilter({
+            allowlist: ["Public", "Private", "Online"],
+          }),
+        },
       })
     );
 
+
+    
     lambdaA.addEventSource(
       new events.SqsEventSource(queue, {
         batchSize: 5,

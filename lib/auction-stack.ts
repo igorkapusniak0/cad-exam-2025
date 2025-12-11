@@ -102,7 +102,6 @@ export class AuctionStack extends cdk.Stack {
     );
 
 
-    
     lambdaA.addEventSource(
       new events.SqsEventSource(queue, {
         batchSize: 5,

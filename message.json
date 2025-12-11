@@ -1,6 +1,7 @@
-{
-    "id" : "Lot12",
-    "name" : "JAMES S. BROHAN (B. 1952)",
-    "marketValue": 12000,
-    "minimumPrice": 10000
-}
+ {
+    "bidId": 100,
+    "custemorName": "Joe Bloggs",
+    "detail": {
+      "itenId": "Lot5",
+      "bidValue": 500
+ }

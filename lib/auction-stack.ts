@@ -93,6 +93,7 @@ export class AuctionStack extends cdk.Stack {
       timeout: cdk.Duration.seconds(15),
       memorySize: 128,
       environment: {
+        TABLE_NAME: bids.tableName,
         REGION: "eu-west-1",
       },
     });

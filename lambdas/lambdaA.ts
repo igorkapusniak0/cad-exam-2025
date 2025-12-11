@@ -9,11 +9,8 @@ export const handler: SQSHandler = async (event) => {
   console.log("Event ", JSON.stringify(event));
 
   for (const record of event.Records) {
-    const data = JSON.parse(record.body)
-    const message = JSON.parse(data.Message);
-    const auctionItem = message as AuctionItem;
-    const auctionType = data.MessageAttributes?.auction_type?.Value as AuctionType;
-    
+    const auctionItem = JSON.parse(record.body) as AuctionItem;
+    const auctionType = record.messageAttributes?.auction_type?.stringValue as AuctionType;
     
     if (auctionItem.marketValue < auctionItem.minimumPrice){
       console.error("Price is too low to sell", auctionItem);

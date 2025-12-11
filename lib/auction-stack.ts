@@ -112,13 +112,7 @@ export class AuctionStack extends cdk.Stack {
     );
 
     topic.addSubscription(
-      new subs.LambdaSubscription(lambdaC, {
-        filterPolicy: {
-          bid_type: sns.SubscriptionFilter.stringFilter({
-            allowlist: ["Bid"],
-          }),
-        },
-      }),
+      new subs.LambdaSubscription(lambdaC),
     );
 
 
@@ -140,6 +134,7 @@ export class AuctionStack extends cdk.Stack {
     // Permissions
 
     auctioStock.grantReadWriteData(lambdaA);
+    bids.grantReadWriteData(lambdaC);
     
     // Output
 

@@ -1,7 +1,8 @@
- {
-    "bidId": 100,
-    "custemorName": "Joe Bloggs",
-    "detail": {
-      "itenId": "Lot5",
-      "bidValue": 500
- }
+{
+  "bidId": 100,
+  "custemorName": "Joe Bloggs",
+  "detail": {
+    "itenId": "Lot5",
+    "bidValue": 500
+  }
+}

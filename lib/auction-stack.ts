@@ -110,6 +110,10 @@ export class AuctionStack extends cdk.Stack {
       })
     );
 
+    topic.addSubscription(
+      new subs.LambdaSubscription(lambdaC),
+    );
+
 
     lambdaA.addEventSource(
       new events.SqsEventSource(queue, {
